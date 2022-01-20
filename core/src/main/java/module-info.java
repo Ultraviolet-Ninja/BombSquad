@@ -5,5 +5,8 @@ module core.bomb {
 //    requires javafx.fxml;
 
     exports core.bomb;
+    exports core.bomb.enumerations;
+
     opens core.bomb;
+    opens core.bomb.enumerations;
 }

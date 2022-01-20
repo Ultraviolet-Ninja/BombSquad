@@ -1,0 +1,25 @@
+package bomb.selection;
+
+public enum Puzzle {
+    ALPHABET,
+    ASTROLOGY,
+    BITWISE_OPS,
+    BLIND_ALLEY,
+    BOOLEAN_VENN_DIAGRAM,
+    CHESS,
+    CHORD_QUALITIES,
+    COLORED_SWITCHES,
+    EMOJI_MATH,
+    FAST_MATH,
+    FORGET_ME_NOT,
+    HEXAMAZE,
+    LAUNDRY,
+    MICROCONTROLLER,
+    NEUTRALIZATION,
+    ROUND_KEYPADS,
+    SIMON_SCREAMS,
+    SOUVENIR,
+    SWITCHES,
+    THE_BULB,
+    TWO_BIT
+}
