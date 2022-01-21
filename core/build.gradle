@@ -1,3 +1,13 @@
+plugins {
+    id 'org.openjfx.javafxplugin'
+}
+
 dependencies {
     implementation 'com.opencsv:opencsv:5.5.2'
+    implementation 'org.jgrapht:jgrapht-ext:1.5.1'
+}
+
+javafx {
+    version = '16'
+    modules = ['javafx.controls', 'javafx.fxml']
 }

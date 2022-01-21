@@ -1,8 +1,8 @@
 module core.bomb {
     requires com.opencsv;
     requires org.jetbrains.annotations;
-//    requires javafx.controls;
-//    requires javafx.fxml;
+    requires javafx.controls;
+    requires javafx.fxml;
 
     exports core.bomb;
     exports core.bomb.enumerations;
