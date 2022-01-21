@@ -1,6 +1,6 @@
 package bomb.tools.note;
 
-import bomb.abstractions.Resettable;
+import core.bomb.abstractions.Resettable;
 import bomb.tools.pattern.facade.FacadeFX;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;

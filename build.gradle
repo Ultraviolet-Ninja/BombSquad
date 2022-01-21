@@ -37,10 +37,6 @@ allprojects {
         testImplementation 'org.slf4j:slf4j-simple:1.7.32'
         testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.8.2'
     }
-
-    test {
-        useTestNG()
-    }
 }
 
 application {
@@ -63,6 +59,10 @@ dependencies {
     implementation('io.github.palexdev:materialfx:11.12.0') {
         exclude group: "org.javafx"
     }
+}
+
+test {
+    useTestNG()
 }
 
 jlink {
