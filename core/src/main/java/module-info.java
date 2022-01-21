@@ -4,6 +4,7 @@ module core.bomb {
     requires org.jetbrains.annotations;
     requires javafx.controls;
     requires javafx.fxml;
+    requires javatuples;
 
     exports core.bomb;
     exports core.bomb.enumerations;
