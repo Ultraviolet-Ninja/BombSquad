@@ -8,10 +8,10 @@ import static core.bomb.enumerations.Port.RCA;
 import static core.bomb.enumerations.Port.RJ45;
 import static core.bomb.modules.t.two_bit.TwoBitState.SECOND_QUERY;
 import static core.bomb.modules.t.two_bit.TwoBitState.SUBMIT;
-import static core.bomb.tools.filter.RegexFilter.CHAR_FILTER;
-import static core.bomb.tools.filter.RegexFilter.NUMBER_PATTERN;
-import static core.bomb.tools.filter.RegexFilter.filter;
-import static core.bomb.tools.string.StringFormat.createOrdinalNumber;
+import static tools.filter.RegexFilter.CHAR_FILTER;
+import static tools.filter.RegexFilter.NUMBER_PATTERN;
+import static tools.filter.RegexFilter.filter;
+import static tools.string.StringFormat.createOrdinalNumber;
 
 /**
  *

@@ -1,10 +1,10 @@
 package core.bomb.modules.c.colored_switches;
 
-import core.bomb.tools.filter.Regex;
 import com.opencsv.CSVReader;
 import org.jgrapht.Graph;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
+import tools.filter.Regex;
 
 import java.io.IOException;
 import java.io.InputStream;

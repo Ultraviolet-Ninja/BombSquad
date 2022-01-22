@@ -1,21 +1,21 @@
 package core.bomb.modules.ab.boolean_venn;
 
 import core.bomb.Widget;
-import core.bomb.tools.filter.Regex;
-import core.bomb.tools.logic.LogicOperator;
+import tools.filter.Regex;
+import tools.logic.LogicOperator;
 import org.jetbrains.annotations.NotNull;
 
-import static core.bomb.tools.filter.RegexFilter.LOGIC_REGEX;
-import static core.bomb.tools.filter.RegexFilter.LOGIC_SYMBOL_FILTER;
-import static core.bomb.tools.filter.RegexFilter.filter;
-import static core.bomb.tools.logic.LogicOperator.AND;
-import static core.bomb.tools.logic.LogicOperator.IMPLIED_BY;
-import static core.bomb.tools.logic.LogicOperator.IMPLIES;
-import static core.bomb.tools.logic.LogicOperator.NAND;
-import static core.bomb.tools.logic.LogicOperator.NOR;
-import static core.bomb.tools.logic.LogicOperator.OR;
-import static core.bomb.tools.logic.LogicOperator.XNOR;
-import static core.bomb.tools.logic.LogicOperator.XOR;
+import static tools.filter.RegexFilter.LOGIC_REGEX;
+import static tools.filter.RegexFilter.LOGIC_SYMBOL_FILTER;
+import static tools.filter.RegexFilter.filter;
+import static tools.logic.LogicOperator.AND;
+import static tools.logic.LogicOperator.IMPLIED_BY;
+import static tools.logic.LogicOperator.IMPLIES;
+import static tools.logic.LogicOperator.NAND;
+import static tools.logic.LogicOperator.NOR;
+import static tools.logic.LogicOperator.OR;
+import static tools.logic.LogicOperator.XNOR;
+import static tools.logic.LogicOperator.XOR;
 
 /**
  * This class deals with the Boolean Venn Diagram module.

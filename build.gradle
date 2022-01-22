@@ -39,6 +39,13 @@ allprojects {
     }
 }
 
+subprojects {
+    dependencies {
+        implementation 'com.opencsv:opencsv:5.5.2'
+        implementation 'org.jgrapht:jgrapht-ext:1.5.1'
+    }
+}
+
 application {
     mainModule = 'bomb'
     mainClass = 'bomb.HelloApplication'
@@ -52,6 +59,7 @@ javafx {
 
 dependencies {
     implementation project(':core')
+    implementation project(':utility')
 
     implementation('com.jfoenix:jfoenix:9.0.4') {
         exclude group: "org.javafx"

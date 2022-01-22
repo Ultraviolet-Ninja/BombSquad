@@ -2,11 +2,12 @@ package core.bomb.modules.m.morsematics;
 
 import core.bomb.Widget;
 import core.bomb.enumerations.Indicator;
-import core.bomb.tools.data.structures.graph.ListGraph;
-import core.bomb.tools.data.structures.ring.ArrayRing;
-import core.bomb.tools.number.MathUtils;
-import core.bomb.tools.pattern.factory.MorseCodeGraphFactory;
+import tools.data.structures.graph.ListGraph;
+
+import tools.pattern.factory.MorseCodeGraphFactory;
 import org.javatuples.Pair;
+import tools.data.structures.ring.ArrayRing;
+import tools.number.MathUtils;
 
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
@@ -17,8 +18,8 @@ import java.util.stream.IntStream;
 
 import static core.bomb.Widget.IndicatorFilter.LIT;
 import static core.bomb.Widget.IndicatorFilter.UNLIT;
-import static core.bomb.tools.number.MathUtils.isPerfectSquare;
 import static java.util.stream.Collectors.toList;
+import static tools.number.MathUtils.isPerfectSquare;
 
 public class Morsematics extends Widget {
     public static String solve(LinkedHashSet<String> inputSet) throws IllegalArgumentException {

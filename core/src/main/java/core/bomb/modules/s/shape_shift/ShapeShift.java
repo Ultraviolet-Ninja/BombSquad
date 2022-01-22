@@ -1,8 +1,8 @@
 package core.bomb.modules.s.shape_shift;
 
 import core.bomb.Widget;
-import core.bomb.tools.data.structures.graph.ListGraph;
 import org.javatuples.Pair;
+import tools.data.structures.graph.ListGraph;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import static core.bomb.enumerations.Port.PS2;
 import static core.bomb.enumerations.Port.RCA;
 import static core.bomb.enumerations.Port.RJ45;
 import static core.bomb.modules.s.shape_shift.ShapeEnd.END_ARRAY;
-import static core.bomb.tools.logic.BitConverter.TO_INT;
+import static tools.logic.BitConverter.TO_INT;
 
 public class ShapeShift extends Widget {
     private static final int[][] COUNT_TRACKER;

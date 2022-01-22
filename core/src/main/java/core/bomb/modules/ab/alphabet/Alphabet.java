@@ -1,15 +1,15 @@
 package core.bomb.modules.ab.alphabet;
 
 import core.bomb.Widget;
-import core.bomb.tools.filter.Regex;
+import tools.filter.Regex;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static core.bomb.tools.filter.Regex.CREATE_NEGATED_SET;
-import static core.bomb.tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
+import static tools.filter.Regex.CREATE_NEGATED_SET;
+import static tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
 
 /**
  * This class deals with the Alphabet module. The module comprises a 2x2 square containing 4 tiles

@@ -2,8 +2,8 @@ package core.bomb.modules.s.square;
 
 import core.bomb.Widget;
 import core.bomb.abstractions.ButtonType;
-import core.bomb.tools.number.MathUtils;
 import org.jetbrains.annotations.NotNull;
+import tools.number.MathUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,11 +15,11 @@ import java.util.stream.IntStream;
 
 import static core.bomb.Widget.IndicatorFilter.LIT;
 import static core.bomb.Widget.IndicatorFilter.UNLIT;
-import static core.bomb.tools.filter.RegexFilter.NUMBER_PATTERN;
-import static core.bomb.tools.filter.RegexFilter.filter;
-import static core.bomb.tools.string.StringFormat.FIRST_LETTER_CAPITAL;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.joining;
+import static tools.filter.RegexFilter.NUMBER_PATTERN;
+import static tools.filter.RegexFilter.filter;
+import static tools.string.StringFormat.FIRST_LETTER_CAPITAL;
 
 public class SquareButton extends Widget implements ButtonType {
     //Button colors

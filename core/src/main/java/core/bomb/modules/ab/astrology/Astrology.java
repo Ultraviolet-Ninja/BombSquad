@@ -1,7 +1,7 @@
 package core.bomb.modules.ab.astrology;
 
 import core.bomb.Widget;
-import core.bomb.tools.filter.Regex;
+import tools.filter.Regex;
 
 import java.util.Arrays;
 import java.util.EnumSet;
@@ -10,9 +10,9 @@ import static core.bomb.modules.ab.astrology.AstrologySymbol.ARIES;
 import static core.bomb.modules.ab.astrology.AstrologySymbol.PISCES;
 import static core.bomb.modules.ab.astrology.AstrologySymbol.PLUTO;
 import static core.bomb.modules.ab.astrology.AstrologySymbol.SUN;
-import static core.bomb.tools.filter.Regex.CREATE_INSENSITIVE_SET;
-import static core.bomb.tools.filter.RegexFilter.CHAR_FILTER;
-import static core.bomb.tools.filter.RegexFilter.filter;
+import static tools.filter.Regex.CREATE_INSENSITIVE_SET;
+import static tools.filter.RegexFilter.CHAR_FILTER;
+import static tools.filter.RegexFilter.filter;
 
 /**
  * This class deals with the Astrology module. This module displays three different astrological symbols

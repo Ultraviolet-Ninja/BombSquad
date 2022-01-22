@@ -3,14 +3,14 @@ package core.bomb.modules.dh.hexamaze.hexalgorithm.pathfinding;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.Grid;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall;
-import core.bomb.tools.Coordinates;
-import core.bomb.tools.data.structures.queue.BufferedQueue;
 import org.jetbrains.annotations.NotNull;
 import org.jgrapht.Graph;
 import org.jgrapht.GraphPath;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleGraph;
+import tools.Coordinates;
+import tools.data.structures.queue.BufferedQueue;
 
 import java.util.Comparator;
 import java.util.List;

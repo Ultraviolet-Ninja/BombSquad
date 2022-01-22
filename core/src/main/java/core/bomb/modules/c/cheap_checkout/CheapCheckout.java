@@ -9,8 +9,8 @@ import java.util.function.ToDoubleFunction;
 
 import static core.bomb.modules.c.cheap_checkout.CheckoutItem.Category.FRUIT;
 import static core.bomb.modules.c.cheap_checkout.CheckoutItem.Category.SWEET;
-import static core.bomb.tools.number.MathUtils.digitalRoot;
-import static core.bomb.tools.number.MathUtils.roundToNPlaces;
+import static tools.number.MathUtils.digitalRoot;
+import static tools.number.MathUtils.roundToNPlaces;
 
 public class CheapCheckout extends Widget {
     private static final double SUNDAY_ADDITION = 2.15, THURSDAY_SALE = 0.5,

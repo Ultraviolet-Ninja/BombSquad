@@ -19,7 +19,7 @@ import static core.bomb.enumerations.Port.PS2;
 import static core.bomb.enumerations.Port.RCA;
 import static core.bomb.enumerations.Port.RJ45;
 import static core.bomb.enumerations.Port.SERIAL;
-import static core.bomb.tools.logic.BitConverter.TO_INT;
+import static tools.logic.BitConverter.TO_INT;
 
 /**
  * This class works on the Blind Alley module, updating the internal 2-D array whenever

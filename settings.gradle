@@ -1,2 +1,3 @@
 rootProject.name = "bomb"
 include 'core'
+include 'utility'

@@ -1,9 +1,9 @@
 package core.bomb.modules.dh.emoji;
 
 import core.bomb.Widget;
-import core.bomb.tools.filter.Regex;
 import org.intellij.lang.annotations.Language;
 import org.jetbrains.annotations.NotNull;
+import tools.filter.Regex;
 
 import static core.bomb.modules.dh.emoji.Emoji.EMOJI_ARRAY;
 

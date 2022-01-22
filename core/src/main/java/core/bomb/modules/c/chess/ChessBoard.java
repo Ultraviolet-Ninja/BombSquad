@@ -1,6 +1,6 @@
 package core.bomb.modules.c.chess;
 
-import core.bomb.tools.Coordinates;
+import tools.Coordinates;
 
 import static core.bomb.modules.c.chess.Tile.TileColor.BLACK;
 import static core.bomb.modules.c.chess.Tile.TileColor.WHITE;

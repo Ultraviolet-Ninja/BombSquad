@@ -4,13 +4,13 @@ import core.bomb.Widget;
 import core.bomb.enumerations.Indicator;
 import core.bomb.enumerations.Port;
 import core.bomb.modules.m.microcontroller.chip.AbstractController;
-import core.bomb.tools.filter.Regex;
 import javafx.scene.paint.Color;
 import org.jetbrains.annotations.NotNull;
+import tools.filter.Regex;
 
 import java.util.List;
 
-import static core.bomb.tools.filter.RegexFilter.filter;
+import static tools.filter.RegexFilter.filter;
 
 public class MicroController extends Widget {
     public static List<Color> getPinColors(@NotNull String moduleSerialNumbers, AbstractController controller)

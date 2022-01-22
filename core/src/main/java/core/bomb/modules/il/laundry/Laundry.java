@@ -26,10 +26,10 @@ import static core.bomb.modules.il.laundry.Clothing.Material.LEATHER;
 import static core.bomb.modules.il.laundry.Clothing.Material.NYLON;
 import static core.bomb.modules.il.laundry.Clothing.Material.POLYESTER;
 import static core.bomb.modules.il.laundry.Clothing.Material.WOOL;
-import static core.bomb.tools.filter.RegexFilter.CHAR_FILTER;
-import static core.bomb.tools.filter.RegexFilter.filter;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
+import static tools.filter.RegexFilter.CHAR_FILTER;
+import static tools.filter.RegexFilter.filter;
 
 /**
  * This class deals with the Laundry module. The module requires a plethora of conditions that involve the

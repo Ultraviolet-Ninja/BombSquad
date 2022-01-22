@@ -1,6 +1,6 @@
 package core.bomb.modules.c.chess;
 
-import core.bomb.tools.Coordinates;
+import tools.Coordinates;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,9 +1,9 @@
 package core.bomb.modules.dh.forget_me;
 
 import core.bomb.Widget;
-import core.bomb.tools.filter.Regex;
-import core.bomb.tools.filter.RegexFilter;
 import core.bomb.enumerations.Indicator;
+import tools.filter.Regex;
+import tools.filter.RegexFilter;
 
 import java.util.ArrayList;
 import java.util.List;

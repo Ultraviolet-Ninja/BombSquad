@@ -5,9 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.EnumSet;
 import java.util.Objects;
 
-import static core.bomb.tools.number.MathUtils.HASHING_NUMBER;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.joining;
+import static tools.number.MathUtils.HASHING_NUMBER;
 
 public class HexNode {
     private EnumSet<HexWall> walls;

@@ -1,10 +1,10 @@
 package core.bomb.modules.wz.word_search;
 
-import core.bomb.tools.Coordinates;
-import core.bomb.tools.data.structures.trie.Trie;
 import org.javatuples.Pair;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import tools.Coordinates;
+import tools.data.structures.trie.Trie;
 
 import java.util.Set;
 

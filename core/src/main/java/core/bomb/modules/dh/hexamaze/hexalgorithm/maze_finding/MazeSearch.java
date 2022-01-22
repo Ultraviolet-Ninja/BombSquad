@@ -5,8 +5,8 @@ import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexShape;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexagonalPlane;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.Maze;
-import core.bomb.tools.data.structures.queue.BufferedQueue;
 import org.jetbrains.annotations.NotNull;
+import tools.data.structures.queue.BufferedQueue;
 
 import java.util.Collection;
 import java.util.List;

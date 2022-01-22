@@ -1,0 +1,22 @@
+plugins {
+    id 'info.solidsoft.pitest'
+    id 'org.openjfx.javafxplugin'
+}
+
+dependencies {
+    implementation('com.jfoenix:jfoenix:9.0.4') {
+        exclude group: "org.javafx"
+    }
+    implementation('io.github.palexdev:materialfx:11.12.0') {
+        exclude group: "org.javafx"
+    }
+}
+
+javafx {
+    version = '16'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+test {
+    useTestNG()
+}

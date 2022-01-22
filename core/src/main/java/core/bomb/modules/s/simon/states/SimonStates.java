@@ -17,10 +17,10 @@ import static core.bomb.modules.s.simon.SimonColors.StateColor.GREEN;
 import static core.bomb.modules.s.simon.SimonColors.StateColor.RED;
 import static core.bomb.modules.s.simon.SimonColors.StateColor.YELLOW;
 import static core.bomb.modules.s.simon.states.StageState.FIRST;
-import static core.bomb.tools.string.StringFormat.FIRST_LETTER_CAPITAL;
 import static java.util.Arrays.asList;
 import static java.util.Collections.reverse;
 import static java.util.stream.Collectors.joining;
+import static tools.string.StringFormat.FIRST_LETTER_CAPITAL;
 
 public class SimonStates extends Widget {
     private static final int HIGH = 1, LOW = 2, LOWEST = 3;

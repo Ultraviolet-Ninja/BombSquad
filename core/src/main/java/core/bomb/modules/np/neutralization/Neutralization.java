@@ -4,9 +4,9 @@ import core.bomb.Widget;
 import core.bomb.modules.np.neutralization.Chemical.Acid;
 import core.bomb.modules.np.neutralization.Chemical.Base;
 import core.bomb.modules.s.souvenir.Souvenir;
-import core.bomb.tools.filter.Regex;
 import javafx.scene.paint.Color;
 import org.intellij.lang.annotations.Language;
+import tools.filter.Regex;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -25,12 +25,12 @@ import static core.bomb.modules.np.neutralization.Chemical.Base.AMMONIA;
 import static core.bomb.modules.np.neutralization.Chemical.Base.LITHIUM_HYDROXIDE;
 import static core.bomb.modules.np.neutralization.Chemical.Base.POTASSIUM_HYDROXIDE;
 import static core.bomb.modules.np.neutralization.Chemical.Base.SODIUM_HYDROXIDE;
-import static core.bomb.tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
-import static core.bomb.tools.filter.RegexFilter.VOWEL_FILTER;
 import static javafx.scene.paint.Color.BLUE;
 import static javafx.scene.paint.Color.GREEN;
 import static javafx.scene.paint.Color.RED;
 import static javafx.scene.paint.Color.YELLOW;
+import static tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
+import static tools.filter.RegexFilter.VOWEL_FILTER;
 
 /**
  * This class deals with the Neutralization module. This puzzle has the Defuser specify the color and amount of

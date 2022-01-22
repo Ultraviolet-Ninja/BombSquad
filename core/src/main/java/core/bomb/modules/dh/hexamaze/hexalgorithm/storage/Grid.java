@@ -1,7 +1,7 @@
 package core.bomb.modules.dh.hexamaze.hexalgorithm.storage;
 
-import core.bomb.tools.data.structures.ring.ArrayRing;
 import javafx.scene.paint.Color;
+import tools.data.structures.ring.ArrayRing;
 
 import static javafx.scene.paint.Color.BLUE;
 import static javafx.scene.paint.Color.CYAN;

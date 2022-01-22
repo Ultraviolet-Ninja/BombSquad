@@ -10,12 +10,12 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static core.bomb.tools.filter.RegexFilter.CHAR_FILTER;
-import static core.bomb.tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
-import static core.bomb.tools.filter.RegexFilter.NUMBER_PATTERN;
-import static core.bomb.tools.filter.RegexFilter.SERIAL_CODE_PATTERN;
-import static core.bomb.tools.filter.RegexFilter.VOWEL_FILTER;
-import static core.bomb.tools.filter.RegexFilter.filter;
+import static tools.filter.RegexFilter.CHAR_FILTER;
+import static tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
+import static tools.filter.RegexFilter.NUMBER_PATTERN;
+import static tools.filter.RegexFilter.SERIAL_CODE_PATTERN;
+import static tools.filter.RegexFilter.VOWEL_FILTER;
+import static tools.filter.RegexFilter.filter;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
 

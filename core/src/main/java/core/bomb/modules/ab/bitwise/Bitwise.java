@@ -1,7 +1,7 @@
 package core.bomb.modules.ab.bitwise;
 
 import core.bomb.Widget;
-import core.bomb.tools.logic.LogicOperator;
+import tools.logic.LogicOperator;
 import org.jetbrains.annotations.NotNull;
 
 import static core.bomb.Widget.IndicatorFilter.LIT;
@@ -9,8 +9,8 @@ import static core.bomb.Widget.IndicatorFilter.UNLIT;
 import static core.bomb.enumerations.Indicator.BOB;
 import static core.bomb.enumerations.Indicator.NSA;
 import static core.bomb.enumerations.Port.PARALLEL;
-import static core.bomb.tools.filter.RegexFilter.NUMBER_PATTERN;
-import static core.bomb.tools.filter.RegexFilter.filter;
+import static tools.filter.RegexFilter.NUMBER_PATTERN;
+import static tools.filter.RegexFilter.filter;
 
 /**
  * This class deals with the Bitwise Operators module. Bitwise Ops is a screen containing a simple 8-bit

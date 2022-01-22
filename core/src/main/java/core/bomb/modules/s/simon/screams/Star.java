@@ -1,8 +1,8 @@
 package core.bomb.modules.s.simon.screams;
 
 import core.bomb.modules.s.simon.SimonColors.ScreamColor;
-import core.bomb.tools.data.structures.ring.ArrayRing;
 import org.jetbrains.annotations.NotNull;
+import tools.data.structures.ring.ArrayRing;
 
 import java.util.Collections;
 import java.util.EnumSet;

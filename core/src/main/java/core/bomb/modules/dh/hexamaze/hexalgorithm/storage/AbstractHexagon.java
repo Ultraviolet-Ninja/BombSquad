@@ -1,6 +1,6 @@
 package core.bomb.modules.dh.hexamaze.hexalgorithm.storage;
 
-import core.bomb.tools.Coordinates;
+import tools.Coordinates;
 
 import java.util.stream.IntStream;
 

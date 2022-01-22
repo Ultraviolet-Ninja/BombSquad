@@ -2,7 +2,7 @@ package core.bomb.modules.c.chess;
 
 import core.bomb.Widget;
 import core.bomb.modules.s.souvenir.Souvenir;
-import core.bomb.tools.Coordinates;
+import tools.Coordinates;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;

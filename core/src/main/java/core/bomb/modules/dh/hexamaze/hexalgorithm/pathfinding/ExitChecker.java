@@ -3,11 +3,11 @@ package core.bomb.modules.dh.hexamaze.hexalgorithm.pathfinding;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.Grid;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall;
-import core.bomb.tools.Coordinates;
-import core.bomb.tools.data.structures.queue.BufferedQueue;
 import javafx.scene.paint.Color;
 import org.javatuples.Pair;
 import org.jetbrains.annotations.NotNull;
+import tools.Coordinates;
+import tools.data.structures.queue.BufferedQueue;
 
 import java.util.ArrayList;
 import java.util.EnumSet;

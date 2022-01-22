@@ -3,10 +3,10 @@ package core.bomb.modules.t.bulb;
 import core.bomb.Widget;
 import core.bomb.enumerations.Indicator;
 import core.bomb.modules.s.souvenir.Souvenir;
-import core.bomb.tools.filter.Regex;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.jetbrains.annotations.NotNull;
+import tools.filter.Regex;
 
 import java.util.ArrayList;
 import java.util.List;

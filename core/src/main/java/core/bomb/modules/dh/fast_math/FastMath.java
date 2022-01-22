@@ -1,13 +1,13 @@
 package core.bomb.modules.dh.fast_math;
 
 import core.bomb.Widget;
-import core.bomb.tools.filter.Regex;
 import org.jetbrains.annotations.NotNull;
+import tools.filter.Regex;
 
 import static core.bomb.enumerations.Indicator.MSA;
 import static core.bomb.enumerations.Port.RJ45;
 import static core.bomb.enumerations.Port.SERIAL;
-import static core.bomb.tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
+import static tools.filter.RegexFilter.EMPTY_FILTER_RESULTS;
 
 public class FastMath extends Widget {
     private static final int[][] INTERNAL_GRID = new int[][]{

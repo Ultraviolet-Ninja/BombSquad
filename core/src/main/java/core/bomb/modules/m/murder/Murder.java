@@ -24,9 +24,9 @@ import static core.bomb.modules.m.murder.Location.DINING_ROOM;
 import static core.bomb.modules.m.murder.Location.HALL;
 import static core.bomb.modules.m.murder.Location.LOUNGE;
 import static core.bomb.modules.m.murder.Location.STUDY;
-import static core.bomb.tools.string.StringFormat.TO_TITLE_CASE;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toMap;
+import static tools.string.StringFormat.TO_TITLE_CASE;
 
 public class Murder extends Widget {
     public static String solve(Location bodyFoundRoom, @NotNull EnumSet<Weapon> possibleWeapons,

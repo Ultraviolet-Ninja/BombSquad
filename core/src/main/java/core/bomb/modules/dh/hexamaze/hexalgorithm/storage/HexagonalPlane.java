@@ -2,8 +2,8 @@ package core.bomb.modules.dh.hexamaze.hexalgorithm.storage;
 
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexShape;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall;
-import core.bomb.tools.Coordinates;
-import core.bomb.tools.data.structures.queue.BufferedQueue;
+import tools.Coordinates;
+import tools.data.structures.queue.BufferedQueue;
 
 import java.util.EnumSet;
 import java.util.Iterator;
@@ -23,10 +23,10 @@ import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.TOP;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.TOP_LEFT;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.TOP_RIGHT;
-import static core.bomb.tools.number.MathUtils.isAnInteger;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
+import static tools.number.MathUtils.isAnInteger;
 
 public class HexagonalPlane implements Iterable<BufferedQueue<HexNode>> {
     public static final IntUnaryOperator CALCULATE_SPAN = length -> 2 * length - 1,

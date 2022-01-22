@@ -2,8 +2,8 @@ package core.bomb.modules.c.chords;
 
 import core.bomb.Widget;
 import core.bomb.modules.s.souvenir.Souvenir;
-import core.bomb.tools.data.structures.ring.ArrayRing;
 import org.jetbrains.annotations.NotNull;
+import tools.data.structures.ring.ArrayRing;
 
 import java.util.Set;
 import java.util.TreeSet;

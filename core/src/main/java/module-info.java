@@ -5,13 +5,12 @@ module core.bomb {
     requires javafx.controls;
     requires javafx.fxml;
     requires javatuples;
+    requires utility;
 
     exports core.bomb;
-    exports core.bomb.enumerations;
-    exports core.bomb.tools.filter;
-
-    opens core.bomb;
-    opens core.bomb.enumerations;
-    opens core.bomb.tools.filter;
     exports core.bomb.abstractions;
+    exports core.bomb.enumerations;
+    exports core.bomb.modules.dh.hexamaze;
+    exports core.bomb.modules.dh.hexamaze.hexalgorithm.storage;
+    exports core.bomb.modules.s.simon;
 }
