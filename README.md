@@ -13,8 +13,6 @@ This also helped me understand how to set up a multi module project with Gradle
 - Jacoco
 - JavaFX
 - Pitest
-- Palantir Docker
-- Breadmoirai GitHub Release
 ### Dependencies
 - MaterialFX ver 11.12.0
 - JFoenix ver 9.0.4
