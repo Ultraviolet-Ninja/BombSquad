@@ -14,11 +14,11 @@ This also helped me understand how to set up a multi module project with Gradle
 - JavaFX
 - Pitest
 ### Dependencies
-- MaterialFX ver. 11.12.0
-- JFoenix ver. 9.0.4
-- JavaTuple ver. 1.2
-- JGraphT ver. 1.5.1
-- OpenCSV ver. 5.5.2
+- MaterialFX  ver. 11.12.0
+- JFoenix     ver. 9.0.4
+- JavaTuple   ver. 1.2
+- JGraphT     ver. 1.5.1
+- OpenCSV     ver. 5.5.2
 ### Other Technologies
 - Circle CI
 - LGTM Code Quality
