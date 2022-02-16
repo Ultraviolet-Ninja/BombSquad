@@ -22,7 +22,6 @@ public class Main extends Application {
             return;
         }
 
-
     }
 
     private static EnumSet<Puzzle> retrieveBombSelection(Stage stage, Image logo) throws IOException {

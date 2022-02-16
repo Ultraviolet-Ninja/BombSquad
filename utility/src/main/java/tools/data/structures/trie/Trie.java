@@ -5,11 +5,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class Trie {
     private final TrieNode root;
@@ -122,7 +122,7 @@ public class Trie {
         private boolean isEndOfWord;
 
         public TrieNode() {
-            children = new HashMap<>(5);
+            children = new TreeMap<>();
             isEndOfWord = false;
         }
 

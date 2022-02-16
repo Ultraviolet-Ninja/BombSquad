@@ -13,7 +13,7 @@ javafx {
 }
 
 test {
-
+    useTestNG()
 }
 
 pitest {
