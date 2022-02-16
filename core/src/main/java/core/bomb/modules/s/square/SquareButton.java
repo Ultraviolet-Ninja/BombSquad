@@ -23,13 +23,22 @@ import static tools.string.StringFormat.FIRST_LETTER_CAPITAL;
 
 public class SquareButton extends Widget implements ButtonType {
     //Button colors
-    public static final int BLUE = 0, YELLOW = 1, DARK_GRAY = 2, WHITE = 3;
+    public static final int BLUE, YELLOW, DARK_GRAY, WHITE;
     //Held button light colors
-    public static final int ORANGE = 0, GREEN = 1, CYAN = 2;
+    public static final int ORANGE, GREEN, CYAN;
 
-    private static final Set<String> COLOR_WORDS = new TreeSet<>(asList("Purple", "Indigo", "Maroon", "Jade"));
+    private static final Set<String> COLOR_WORDS;
 
-    public static String solve(int buttonColor, @NotNull String buttonText) throws IllegalArgumentException {
+    static {
+        BLUE  = ORANGE = 0;
+        YELLOW = GREEN = 1;
+        DARK_GRAY = CYAN = 2;
+        WHITE = 3;
+
+        COLOR_WORDS = new TreeSet<>(asList("Purple", "Indigo", "Maroon", "Jade"));
+    }
+
+    public static @NotNull String solve(int buttonColor, @NotNull String buttonText) throws IllegalArgumentException {
         checkSerialCode();
         validateButtonColor(buttonColor);
         buttonText = FIRST_LETTER_CAPITAL.apply(buttonText);
@@ -59,7 +68,8 @@ public class SquareButton extends Widget implements ButtonType {
                 .orElse(0) == buttonText.length();
     }
 
-    public static String solveForHeldButton(boolean isFlashing, int lightColor) throws IllegalArgumentException {
+    public static @NotNull String solveForHeldButton(boolean isFlashing, int lightColor)
+            throws IllegalArgumentException {
         if (lightColor < ORANGE || lightColor > CYAN)
             throw new IllegalArgumentException("Invalid light color");
 

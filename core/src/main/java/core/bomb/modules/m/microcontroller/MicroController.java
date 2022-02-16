@@ -1,8 +1,6 @@
 package core.bomb.modules.m.microcontroller;
 
 import core.bomb.Widget;
-import core.bomb.enumerations.Indicator;
-import core.bomb.enumerations.Port;
 import core.bomb.modules.m.microcontroller.chip.AbstractController;
 import javafx.scene.paint.Color;
 import org.jetbrains.annotations.NotNull;
@@ -10,15 +8,18 @@ import tools.filter.Regex;
 
 import java.util.List;
 
+import static core.bomb.enumerations.Indicator.SIG;
+import static core.bomb.enumerations.Port.RJ45;
 import static tools.filter.RegexFilter.filter;
 
 public class MicroController extends Widget {
-    public static List<Color> getPinColors(@NotNull String moduleSerialNumbers, AbstractController controller)
+    public static @NotNull List<Color> getPinColors(@NotNull String moduleSerialNumbers,
+                                                    @NotNull AbstractController controller)
             throws IllegalArgumentException {
         validateInput(moduleSerialNumbers, controller);
         if (containsRequiredNumbers(moduleSerialNumbers))
             return controller.traversePins(0);
-        else if (hasLitIndicator(Indicator.SIG) || doesPortExists(Port.RJ45))
+        else if (hasLitIndicator(SIG) || doesPortExists(RJ45))
             return controller.traversePins(1);
         else if (filter(serialCode, new Regex("[clrx18]")).length() > 0)
             return controller.traversePins(2);

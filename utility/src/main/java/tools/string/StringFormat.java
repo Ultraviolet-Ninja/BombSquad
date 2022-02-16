@@ -1,5 +1,7 @@
 package tools.string;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.function.UnaryOperator;
 
 import static java.util.Arrays.stream;
@@ -21,7 +23,9 @@ public class StringFormat {
                     .map(String::toUpperCase)
                     .collect(joining("_"));
 
-    public static String createOrdinalNumber(int number) {
+    public static @NotNull String createOrdinalNumber(int number) {
+        if (number < 0)
+            throw new IllegalArgumentException("Number cannot be negative");
         int mod = number % 100;
 
         if (mod == 1) return number + "st";

@@ -5,6 +5,7 @@ import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexShape;
 import core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,18 +22,17 @@ import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexShap
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexShape.UP_TRIANGLE;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toCollection;
-import static java.util.stream.Collectors.toList;
 
 @SuppressWarnings("ConstantConditions")
 public class MazeFactory {
-    public static List<HexNode> createMaze() throws IOException, CsvException {
+    public static @NotNull List<HexNode> createMaze() throws IOException, CsvException {
         InputStream in = MazeFactory.class.getResourceAsStream("maze.csv");
         CSVReader csvReader = new CSVReader(new InputStreamReader(in));
         return csvReader.readAll().stream()
                 .flatMap(Arrays::stream)
                 .map(line -> line.split(" "))
                 .map(data -> new HexNode(decodeShape(data[1]), decodeWalls(data[0])))
-                .collect(toList());
+                .toList();
     }
 
     public static HexShape decodeShape(String code) {

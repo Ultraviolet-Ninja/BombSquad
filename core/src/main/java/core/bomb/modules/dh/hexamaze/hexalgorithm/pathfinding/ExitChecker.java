@@ -13,10 +13,11 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 import static core.bomb.modules.dh.hexamaze.Hexamaze.COLOR_MAP;
-import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.AbstractHexagon.calculateColumnLengthStream;
+import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.AbstractHexagon.calculateColumnLengthArray;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.Grid.GRID_SIDE_LENGTH;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.BOTTOM;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.BOTTOM_LEFT;
@@ -25,19 +26,18 @@ import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.TOP_LEFT;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.TOP_RIGHT;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexagonalPlane.CALCULATE_SPAN;
-import static java.util.stream.Collectors.toList;
 
 public class ExitChecker {
-    public static Pair<String, List<Coordinates>> findPossibleExits(@NotNull Grid grid)
+    public static Optional<Pair<String, List<Coordinates>>> findPossibleExits(@NotNull Grid grid)
             throws IllegalArgumentException {
         int pegCount = countPegsOnGrid(grid.getHexagon().getBufferedQueues());
         if (pegCount == 0)
-            return null;
+            return Optional.empty();
         if (pegCount > 1)
             throw new IllegalArgumentException("Cannot have more than one peg on the board");
 
         int sideToExit = getSideToExit(grid);
-        return getPossibleExits(grid, sideToExit);
+        return Optional.of(getPossibleExits(grid, sideToExit));
     }
 
     private static Pair<String, List<Coordinates>> getPossibleExits(Grid grid, int sideToExit) {
@@ -64,7 +64,7 @@ public class ExitChecker {
     private static List<Coordinates> getTopLeftSideExits() {
         return IntStream.range(0, GRID_SIDE_LENGTH)
                 .mapToObj(i -> new Coordinates(i, 0))
-                .collect(toList());
+                .toList();
     }
 
     private static List<Coordinates> getTopRightSideExits() {
@@ -72,23 +72,23 @@ public class ExitChecker {
 
         return IntStream.range(GRID_SIDE_LENGTH - 1, gripSpan)
                 .mapToObj(index -> new Coordinates(index, 0))
-                .collect(toList());
+                .toList();
     }
 
     private static List<Coordinates> getRightSideExits() {
-        int[] columnCapacities = calculateColumnLengthStream(GRID_SIDE_LENGTH);
+        int[] columnCapacities = calculateColumnLengthArray(GRID_SIDE_LENGTH);
         int lastIndex = columnCapacities.length - 1;
         int finalColumnCapacity = columnCapacities[lastIndex];
 
         return IntStream.range(0, finalColumnCapacity)
                 .mapToObj(i -> new Coordinates(lastIndex, i))
-                .collect(toList());
+                .toList();
     }
 
     private static List<Coordinates> getBottomRightSideExits() {
         int gridSpan = CALCULATE_SPAN.applyAsInt(GRID_SIDE_LENGTH);
         List<Coordinates> list = new ArrayList<>();
-        int[] columnCapacities = calculateColumnLengthStream(GRID_SIDE_LENGTH);
+        int[] columnCapacities = calculateColumnLengthArray(GRID_SIDE_LENGTH);
 
         for (int i = GRID_SIDE_LENGTH - 1; i < gridSpan; i++) {
             list.add( new Coordinates(i, columnCapacities[i] - 1));
@@ -98,7 +98,7 @@ public class ExitChecker {
 
     private static List<Coordinates> getBottomLeftSideExits() {
         List<Coordinates> output = new ArrayList<>();
-        int[] columnCapacities = calculateColumnLengthStream(GRID_SIDE_LENGTH);
+        int[] columnCapacities = calculateColumnLengthArray(GRID_SIDE_LENGTH);
 
         for (int i = 0; i < GRID_SIDE_LENGTH; i++) {
             output.add(new Coordinates(i, columnCapacities[i] - 1));
@@ -127,12 +127,12 @@ public class ExitChecker {
         return list.stream()
                 .filter(coordinates -> {
                     HexNode node = grid.getAtCoordinates(coordinates);
-                    return isOneWallClear(node, wallsToFind);
+                    return isAtLeastOneWallClear(node, wallsToFind);
                 })
-                .collect(toList());
+                .toList();
     }
 
-    private static boolean isOneWallClear(HexNode node, EnumSet<HexWall> wallsToFind) {
+    private static boolean isAtLeastOneWallClear(HexNode node, EnumSet<HexWall> wallsToFind) {
         for (HexWall wall : wallsToFind) {
             if (!node.isPathBlocked(wall))
                 return true;

@@ -18,6 +18,7 @@ import tools.Coordinates;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import static javafx.scene.paint.Color.BLUE;
 import static javafx.scene.paint.Color.CYAN;
@@ -27,10 +28,13 @@ import static javafx.scene.paint.Color.RED;
 import static javafx.scene.paint.Color.YELLOW;
 
 public class Hexamaze extends Widget {
-    public static final Map<Color, Integer> COLOR_MAP = new HashMap<>();
-    public static final Color PEG_COLOR = new Color(0.65, 0.65, 0.65, 1.0);
+    public static final Map<Color, Integer> COLOR_MAP;
+    public static final Color PEG_COLOR;
 
     static {
+        PEG_COLOR = new Color(0.65, 0.65, 0.65, 1.0);
+
+        COLOR_MAP = new HashMap<>();
         COLOR_MAP.put(PEG_COLOR, -1);
         COLOR_MAP.put(RED, 0);
         COLOR_MAP.put(YELLOW, 1);
@@ -40,20 +44,25 @@ public class Hexamaze extends Widget {
         COLOR_MAP.put(PINK, 5);
     }
 
-    public static Quartet<@NotNull Grid, @Nullable String, @Nullable Integer, @Nullable List<Coordinates>> solve(
-            @NotNull List<HexNode> nodeList) {
+    public static @NotNull Quartet<
+            @NotNull Grid,
+            @Nullable String,
+            @Nullable Integer,
+            @Nullable List<Coordinates>>solve(@NotNull List<HexNode> nodeList) throws IllegalArgumentException {
         Maze maze = new Maze();
         Grid original = new Grid(new HexagonalPlane(nodeList));
 
-        Grid found = MazeSearch.search(maze, original);
-        if (found == null)
-            throw new IllegalArgumentException("Could not find maze from given shapes");
+        Grid found = MazeSearch.search(maze, original)
+                .orElseThrow(() -> {
+                    throw new IllegalArgumentException("Could not find maze from given shapes");
+                });
 
         int colorValue = copyPegLocation(original, found);
-        Pair<String, List<Coordinates>> exitInfo = ExitChecker.findPossibleExits(found);
-        if (exitInfo == null)
+        Optional<Pair<String, List<Coordinates>>> exitInfoOptional = ExitChecker.findPossibleExits(found);
+        if (exitInfoOptional.isEmpty())
             return new Quartet<>(found, null, null, null);
 
+        Pair<String, List<Coordinates>> exitInfo = exitInfoOptional.get();
         return new Quartet<>(
                 found,
                 exitInfo.getValue0(),
