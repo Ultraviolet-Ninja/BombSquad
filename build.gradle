@@ -3,7 +3,6 @@ plugins {
     id 'org.beryx.jlink' version '2.24.1'
     id 'info.solidsoft.pitest' version '1.7.0'
     id 'org.openjfx.javafxplugin' version '0.0.11'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
     id 'org.javamodularity.moduleplugin' version '1.8.10'
 }
 
@@ -61,7 +60,6 @@ javafx {
 dependencies {
     implementation project(':core')
     implementation project(':utility')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
 
     implementation('com.jfoenix:jfoenix:9.0.4') {
         exclude group: "org.javafx"

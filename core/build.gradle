@@ -1,12 +1,10 @@
 plugins {
     id 'info.solidsoft.pitest'
     id 'org.openjfx.javafxplugin'
-    id 'org.jetbrains.kotlin.jvm'
 }
 
 dependencies {
     implementation project(':utility')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
 }
 
 javafx {

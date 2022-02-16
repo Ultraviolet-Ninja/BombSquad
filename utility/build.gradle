@@ -1,11 +1,9 @@
 plugins {
     id 'info.solidsoft.pitest'
     id 'org.openjfx.javafxplugin'
-    id 'org.jetbrains.kotlin.jvm'
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
     implementation('com.jfoenix:jfoenix:9.0.4') {
         exclude group: "org.javafx"
     }

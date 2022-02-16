@@ -7,7 +7,6 @@ This also helped me understand how to set up a multi module project with Gradle
 
 ## Technologies
 - Java 16
-- Kotlin
 - Gradle 7.3.3
 
 ### Plugins
