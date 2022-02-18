@@ -27,7 +27,7 @@ jobs:
   utility-pitest:
     docker:
       - image: cimg/openjdk:17.0.1
-    resource_class: small
+    resource_class: medium
 
     working_directory: ~/repo
 

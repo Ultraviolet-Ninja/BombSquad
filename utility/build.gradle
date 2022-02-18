@@ -19,6 +19,7 @@ javafx {
 
 test {
     useTestNG()
+    finalizedBy(jacocoTestReport)
 }
 
 pitest {

@@ -75,6 +75,7 @@ dependencies {
 
 test {
     useTestNG()
+//    finalizedBy(jacocoTestReport)
 }
 
 jlink {
