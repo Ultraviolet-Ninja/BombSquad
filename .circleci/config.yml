@@ -59,8 +59,12 @@ jobs:
     steps:
       - checkout
       - run: chmod +x gradlew
-      - run: ./gradlew dependencies
+      - run: ./gradlew :core:dependencies
 #      - run: ./gradlew :core:test
+#      - store_test_results:
+#          path: ./core/build/test-results/test
+#      - store_artifacts:
+#          path: ./core/build/reports/jacoco
 
 
   core-pitest:
@@ -78,7 +82,10 @@ jobs:
     steps:
       - checkout
       - run: chmod +x gradlew
-      - run: ./gradlew dependencies
+      - run: ./gradlew :core:dependencies
+#      - run: ./gradlew :core:pitest
+#      - store_artifacts:
+#          path: ./utility/build/reports/pitest
 
 workflows:
   version: 2
