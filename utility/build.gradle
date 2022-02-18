@@ -20,3 +20,8 @@ javafx {
 test {
     useTestNG()
 }
+
+pitest {
+    outputFormats = ['HTML']
+    testPlugin = 'testng'
+}

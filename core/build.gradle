@@ -17,5 +17,6 @@ test {
 }
 
 pitest {
-
+    outputFormats = ['HTML']
+    testPlugin = 'testng'
 }
