@@ -22,6 +22,7 @@ test {
 }
 
 pitest {
+    targetClasses = ['tools.*']
     outputFormats = ['HTML']
     testPlugin = 'testng'
 }
