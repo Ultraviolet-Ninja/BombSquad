@@ -33,9 +33,13 @@ allprojects {
         implementation 'org.jetbrains:annotations:22.0.0'
 
         testImplementation 'org.testng:testng:7.5'
-        testImplementation 'org.slf4j:slf4j-api:1.7.32'
-        testImplementation 'org.slf4j:slf4j-simple:1.7.32'
-        testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.8.2'
+        testImplementation 'org.slf4j:slf4j-api:1.7.35'
+        testImplementation 'org.slf4j:slf4j-simple:1.7.36'
+        testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.9'
+    }
+
+    jacocoTestReport {
+        reports.xml.enabled(true)
     }
 }
 
@@ -53,7 +57,7 @@ application {
 }
 
 javafx {
-    version = '16'
+    version = '17.0.1'
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
@@ -71,6 +75,7 @@ dependencies {
 
 test {
     useTestNG()
+//    finalizedBy(jacocoTestReport)
 }
 
 jlink {

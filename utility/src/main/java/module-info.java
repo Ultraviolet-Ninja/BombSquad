@@ -18,4 +18,17 @@ module utility {
     exports tools.pattern.facade;
     exports tools.pattern.factory;
     exports tools.string;
+
+    opens tools;
+    opens tools.data.structures.graph;
+    opens tools.data.structures.queue;
+    opens tools.data.structures.ring;
+    opens tools.data.structures.trie;
+    opens tools.event;
+    opens tools.filter;
+    opens tools.logic;
+    opens tools.number;
+    opens tools.pattern.facade;
+    opens tools.pattern.factory;
+    opens tools.string;
 }

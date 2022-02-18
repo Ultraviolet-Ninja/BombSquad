@@ -29,8 +29,8 @@ import static java.util.stream.Collectors.toMap;
 import static tools.string.StringFormat.TO_TITLE_CASE;
 
 public class Murder extends Widget {
-    public static String solve(Location bodyFoundRoom, @NotNull EnumSet<Weapon> possibleWeapons,
-                               @NotNull EnumSet<Suspect> possibleSuspects) throws IllegalArgumentException {
+    public static @NotNull String solve(@NotNull Location bodyFoundRoom, @NotNull EnumSet<Weapon> possibleWeapons,
+                                        @NotNull EnumSet<Suspect> possibleSuspects) throws IllegalArgumentException {
         validateInput(possibleWeapons, possibleSuspects, bodyFoundRoom);
 
         Pair<EnumMap<Suspect, List<Location>>, EnumMap<Weapon, List<Location>>> mapPair;

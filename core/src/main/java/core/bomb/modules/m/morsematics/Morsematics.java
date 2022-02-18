@@ -2,6 +2,7 @@ package core.bomb.modules.m.morsematics;
 
 import core.bomb.Widget;
 import core.bomb.enumerations.Indicator;
+import org.jetbrains.annotations.NotNull;
 import tools.data.structures.graph.ListGraph;
 
 import tools.pattern.factory.MorseCodeGraphFactory;
@@ -18,17 +19,16 @@ import java.util.stream.IntStream;
 
 import static core.bomb.Widget.IndicatorFilter.LIT;
 import static core.bomb.Widget.IndicatorFilter.UNLIT;
-import static java.util.stream.Collectors.toList;
 import static tools.number.MathUtils.isPerfectSquare;
 
 public class Morsematics extends Widget {
-    public static String solve(LinkedHashSet<String> inputSet) throws IllegalArgumentException {
+    public static @NotNull String solve(@NotNull LinkedHashSet<String> inputSet) throws IllegalArgumentException {
         checkSerialCode();
         ListGraph<String> morseGraph = MorseCodeGraphFactory.createGraph();
         List<String> inputLetter = validate(inputSet, morseGraph);
         List<String> letterList = IntStream.rangeClosed('A', 'Z')
                 .mapToObj(number -> String.valueOf((char) number))
-                .collect(toList());
+                .toList();
 
         Pair<ArrayRing<String>, ArrayRing<String>> rotatingLetters = createStartingLetters(letterList);
         findFinalLetter(rotatingLetters, inputLetter);
@@ -57,7 +57,7 @@ public class Morsematics extends Widget {
                         input.toUpperCase()
                 )
                 .distinct()
-                .collect(toList());
+                .toList();
         if (inputLetters.size() != 3)
             throw new IllegalArgumentException(
                     "Repeated value detected in both morse code and the letter form"
@@ -75,7 +75,7 @@ public class Morsematics extends Widget {
     }
 
     private static void findFinalLetter(Pair<ArrayRing<String>, ArrayRing<String>> rotatingLetters,
-                                          List<String> inputLetters) {
+                                        List<String> inputLetters) {
         final int[] inputLetterValues = inputLetters.stream()
                 .mapToInt(letter -> letter.charAt(0) - '@')
                 .toArray();

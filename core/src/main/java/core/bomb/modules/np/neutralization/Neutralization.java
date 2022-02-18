@@ -6,11 +6,11 @@ import core.bomb.modules.np.neutralization.Chemical.Base;
 import core.bomb.modules.s.souvenir.Souvenir;
 import javafx.scene.paint.Color;
 import org.intellij.lang.annotations.Language;
+import org.jetbrains.annotations.NotNull;
 import tools.filter.Regex;
 
 import java.util.Arrays;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static core.bomb.Widget.IndicatorFilter.ALL_PRESENT;
 import static core.bomb.enumerations.Indicator.CAR;
@@ -25,6 +25,7 @@ import static core.bomb.modules.np.neutralization.Chemical.Base.AMMONIA;
 import static core.bomb.modules.np.neutralization.Chemical.Base.LITHIUM_HYDROXIDE;
 import static core.bomb.modules.np.neutralization.Chemical.Base.POTASSIUM_HYDROXIDE;
 import static core.bomb.modules.np.neutralization.Chemical.Base.SODIUM_HYDROXIDE;
+import static java.util.stream.Collectors.toUnmodifiableSet;
 import static javafx.scene.paint.Color.BLUE;
 import static javafx.scene.paint.Color.GREEN;
 import static javafx.scene.paint.Color.RED;
@@ -38,12 +39,18 @@ import static tools.filter.RegexFilter.VOWEL_FILTER;
  * drop count and determine if the titration needs a filter or not.
  */
 public class Neutralization extends Widget {
-    public static final String NO_FILTER_TEXT = "No Filter", FILTER_TEXT = "Filter";
+    public static final String NO_FILTER_TEXT, FILTER_TEXT;
 
-    static final String OUTPUT_SEPARATOR = "-";
+    static final String OUTPUT_SEPARATOR;
 
     private static Acid currentAcid;
     private static Base currentBase;
+
+    static {
+        OUTPUT_SEPARATOR = "-";
+        NO_FILTER_TEXT = "No Filter";
+        FILTER_TEXT = "Filter";
+    }
 
     /**
      * @param acidVol The volume of the acid.
@@ -51,7 +58,7 @@ public class Neutralization extends Widget {
      * @param acidColor The color of acid
      * @return The name and formula of the base, the drop count and whether the titration needs a filter
      */
-    public static String titrate(int acidVol, Color acidColor) throws IllegalArgumentException {
+    public static @NotNull String titrate(int acidVol, @NotNull Color acidColor) throws IllegalArgumentException {
         checkSerialCode();
 
         if (isSouvenirActive)
@@ -104,7 +111,7 @@ public class Neutralization extends Widget {
                 .map(String::toLowerCase)
                 .map(name -> name.split(""))
                 .flatMap(Arrays::stream)
-                .collect(Collectors.toSet());
+                .collect(toUnmodifiableSet());
 
         @Language("regexp")
         String regex = uniqueCharacterSet.toString().replaceAll(", ", "");
