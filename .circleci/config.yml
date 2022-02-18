@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       - run: chmod +x gradlew
-      - run: ./gradlew dependencies
+      - run: ./gradlew :utility:dependencies
       - run: ./gradlew :utility:test
       - store_test_results:
           path: ./build/test-results/test
@@ -38,7 +38,7 @@ jobs:
     steps:
       - checkout
       - run: chmod +x gradlew
-      - run: ./gradlew dependencies
+      - run: ./gradlew :utility:dependencies
       - run: ./gradlew :utility:pitest
       - store_artifacts:
           path: ./utility/build/reports/pitest
