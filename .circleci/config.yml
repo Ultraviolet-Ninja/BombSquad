@@ -19,9 +19,9 @@ jobs:
       - run: ./gradlew :utility:dependencies
       - run: ./gradlew :utility:test
       - store_test_results:
-          path: ./build/test-results/test
+          path: ./utility/build/test-results/test
       - store_artifacts:
-          path: ./build/reports
+          path: ./utility/build/reports/jacoco
 
 
   utility-pitest:
