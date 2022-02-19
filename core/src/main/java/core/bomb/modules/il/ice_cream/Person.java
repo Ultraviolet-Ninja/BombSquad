@@ -31,8 +31,8 @@ public enum Person {
         InputStream in = Person.class.getResourceAsStream(FILENAME);
         EnumMap<Person, EnumSet<Allergen>> output = new EnumMap<>(Person.class);
 
-        Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
-        try (CSVReader csvReader = new CSVReader(reader)) {
+        try (Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
+                CSVReader csvReader = new CSVReader(reader)) {
             for (String[] line : csvReader) {
                 output.put(
                         people[counter++],

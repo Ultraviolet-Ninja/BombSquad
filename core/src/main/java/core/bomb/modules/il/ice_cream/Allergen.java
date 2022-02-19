@@ -1,6 +1,5 @@
 package core.bomb.modules.il.ice_cream;
 
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
