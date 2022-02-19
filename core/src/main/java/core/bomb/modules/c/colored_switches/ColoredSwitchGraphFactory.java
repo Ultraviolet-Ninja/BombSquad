@@ -7,15 +7,14 @@ import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.SimpleDirectedGraph;
 import tools.filter.Regex;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("ConstantConditions")
 public class ColoredSwitchGraphFactory {
     private static final byte OUTGOING_STATE = 1, COLOR_CONDITIONS = 2, SWITCH_TO_FLIP = 3;
     private static final String FILENAME = "graph.csv";
@@ -25,10 +24,11 @@ public class ColoredSwitchGraphFactory {
     }
 
     private static List<ColoredSwitchNode> createFromFile() throws IllegalStateException {
-        List<ColoredSwitchNode> output = new ArrayList<>();
+        List<ColoredSwitchNode> output = new ArrayList<>(32);
         Regex connectionFinder = new Regex("\\[(\\d{1,2})\\((\\d{1,3})\\)([1-5])]");
+        InputStream in = ColoredSwitchGraphFactory.class.getResourceAsStream(FILENAME);
 
-        try (CSVReader csvReader = createReader()) {
+        try (CSVReader csvReader = new CSVReader(new InputStreamReader(in))) {
             csvReader.forEach(record -> output.add(buildNode(record, connectionFinder)));
             return output;
         } catch (IOException e) {
@@ -49,13 +49,6 @@ public class ColoredSwitchGraphFactory {
         }
 
         return output;
-    }
-
-    @SuppressWarnings("ConstantConditions")
-    private static CSVReader createReader() {
-        InputStream in = ColoredSwitchGraphFactory.class.getResourceAsStream(FILENAME);
-        Reader reader = new BufferedReader(new InputStreamReader(in));
-        return new CSVReader(reader);
     }
 
     private static ColoredSwitchNode buildNode(String[] record, Regex connectionFinder) {

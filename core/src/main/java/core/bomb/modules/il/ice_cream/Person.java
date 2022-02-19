@@ -2,11 +2,9 @@ package core.bomb.modules.il.ice_cream;
 
 import com.opencsv.CSVReader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -31,8 +29,7 @@ public enum Person {
         InputStream in = Person.class.getResourceAsStream(FILENAME);
         EnumMap<Person, EnumSet<Allergen>> output = new EnumMap<>(Person.class);
 
-        try (Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
-                CSVReader csvReader = new CSVReader(reader)) {
+        try (CSVReader csvReader = new CSVReader(new InputStreamReader(in, UTF_8))) {
             for (String[] line : csvReader) {
                 output.put(
                         people[counter++],

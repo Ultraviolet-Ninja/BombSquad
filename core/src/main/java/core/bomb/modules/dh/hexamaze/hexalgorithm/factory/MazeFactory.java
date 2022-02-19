@@ -8,11 +8,9 @@ import com.opencsv.exceptions.CsvException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
@@ -31,8 +29,8 @@ import static java.util.stream.Collectors.toCollection;
 public class MazeFactory {
     public static @NotNull List<HexNode> createMaze() throws IllegalStateException {
         InputStream in = MazeFactory.class.getResourceAsStream("maze.csv");
-        Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
-        try (CSVReader csvReader = new CSVReader(reader)) {
+
+        try (CSVReader csvReader = new CSVReader(new InputStreamReader(in, UTF_8))) {
             return csvReader.readAll().stream()
                     .flatMap(Arrays::stream)
                     .map(line -> line.split(" "))

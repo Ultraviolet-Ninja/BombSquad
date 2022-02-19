@@ -4,17 +4,14 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.javatuples.Pair;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static java.util.stream.Collectors.toList;
 
 @SuppressWarnings("ConstantConditions")
 public class LocationMapFactory {
@@ -42,8 +39,8 @@ public class LocationMapFactory {
 
     private static List<List<Location>> createLocationLists() throws IllegalStateException {
         InputStream in = Location.class.getResourceAsStream(FILENAME);
-        Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
-        try (CSVReader csvReader = new CSVReader(reader)) {
+
+        try (CSVReader csvReader = new CSVReader(new InputStreamReader(in, UTF_8))) {
             return csvReader.readAll()
                     .stream()
                     .map(Arrays::stream)
