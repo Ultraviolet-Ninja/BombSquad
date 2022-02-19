@@ -4,13 +4,16 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import org.javatuples.Pair;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.stream.Collectors.toList;
 
 @SuppressWarnings("ConstantConditions")
@@ -18,7 +21,7 @@ public class LocationMapFactory {
     private static final String FILENAME = "location_list.csv";
 
     static Pair<EnumMap<Suspect, List<Location>>, EnumMap<Weapon, List<Location>>> createMaps()
-            throws IOException, CsvException {
+            throws IllegalStateException {
         EnumMap<Suspect, List<Location>> suspectMap = new EnumMap<>(Suspect.class);
         EnumMap<Weapon, List<Location>> weaponMap = new EnumMap<>(Weapon.class);
 
@@ -37,17 +40,20 @@ public class LocationMapFactory {
         return new Pair<>(suspectMap, weaponMap);
     }
 
-    private static List<List<Location>> createLocationLists() throws IOException, CsvException {
+    private static List<List<Location>> createLocationLists() throws IllegalStateException {
         InputStream in = Location.class.getResourceAsStream(FILENAME);
-        CSVReader reader = new CSVReader(new InputStreamReader(in));
-
-        return reader.readAll()
-                .stream()
-                .map(Arrays::stream)
-                .map(stream -> stream
-                        .map(Location::valueOf)
-                        .collect(toList())
-                )
-                .collect(toList());
+        Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
+        try (CSVReader csvReader = new CSVReader(reader)) {
+            return csvReader.readAll()
+                    .stream()
+                    .map(Arrays::stream)
+                    .map(stream -> stream
+                            .map(Location::valueOf)
+                            .toList()
+                    )
+                    .toList();
+        } catch (IOException | CsvException e) {
+            throw new IllegalStateException(e);
+        }
     }
 }

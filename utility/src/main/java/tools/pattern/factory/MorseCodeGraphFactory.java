@@ -3,9 +3,11 @@ package tools.pattern.factory;
 import com.opencsv.CSVReader;
 import tools.data.structures.graph.ListGraph;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -18,17 +20,16 @@ public class MorseCodeGraphFactory {
     public static ListGraph<String> createGraph() throws IllegalStateException {
         ListGraph<String> graph = new ListGraph<>(true);
         InputStream in = MorseCodeGraphFactory.class.getResourceAsStream(FILENAME);
-        CSVReader reader = new CSVReader(new InputStreamReader(in, UTF_8));
+        Reader reader = new BufferedReader(new InputStreamReader(in, UTF_8));
 
-        for (String[] line : reader) {
-            String letters = line[1];
-            for (String letter : letters.split("_")) {
-                graph.addEdge(line[0], letter);
+        try (CSVReader csvReader = new CSVReader(reader)) {
+            for (String[] line : csvReader) {
+                String[] alphaNumericChars = line[1].split("_");
+                for (String s : alphaNumericChars) {
+                    graph.addEdge(line[0], s);
+                }
             }
-        }
 
-        try {
-            reader.close();
             return graph;
         } catch (IOException e) {
             throw new IllegalStateException(e);
