@@ -3,7 +3,7 @@
 ## Introduction
 The purpose of this project is as an extension to the [Gradle Centurion](https://github.com/Ultraviolet-Ninja/GradleCenturion) to solve more modules than those on the Centurion
 
-This also helped me understand how to set up a multi module project with Gradle
+This also helped me understand how to set up a multi-module project with Gradle
 
 ## Technologies
 - Java 16
