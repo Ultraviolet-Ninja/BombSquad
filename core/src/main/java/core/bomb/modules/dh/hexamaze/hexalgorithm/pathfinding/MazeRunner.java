@@ -15,7 +15,7 @@ import tools.data.structures.queue.BufferedQueue;
 import java.util.Comparator;
 import java.util.List;
 
-import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.AbstractHexagon.calculateColumnLengthStream;
+import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.AbstractHexagon.calculateColumnLengthArray;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.Grid.GRID_SIDE_LENGTH;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.BOTTOM;
 import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall.BOTTOM_RIGHT;
@@ -23,13 +23,10 @@ import static core.bomb.modules.dh.hexamaze.hexalgorithm.storage.HexNode.HexWall
 
 public class MazeRunner {
     //Movement Vectors
-    private static final Coordinates
-            MOVE_DOWN = new Coordinates(0, 1),
-            MOVE_RIGHT = new Coordinates(1, 0),
-            LEFT_SIDE_MOVE_DOWN_RIGHT = new Coordinates(1, 1),
-            RIGHT_SIDE_MOVE_TOP_RIGHT = new Coordinates(1, -1);
+    private static final Coordinates MOVE_DOWN, MOVE_RIGHT,
+            LEFT_SIDE_MOVE_DOWN_RIGHT, RIGHT_SIDE_MOVE_TOP_RIGHT;
 
-    public static List<Coordinates> runMaze(@NotNull Grid grid, @NotNull List<Coordinates> possibleExits)
+    public static @NotNull List<Coordinates> runMaze(@NotNull Grid grid, @NotNull List<Coordinates> possibleExits)
             throws IllegalArgumentException {
         Coordinates startingLocation = findStartingLocation(grid);
         Graph<Coordinates, DefaultEdge> mappedGraph = convertGridToGraph(grid);
@@ -45,7 +42,7 @@ public class MazeRunner {
 
     private static Graph<Coordinates, DefaultEdge> convertGridToGraph(Grid grid) {
         Graph<Coordinates, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
-        int[] columnLengths = calculateColumnLengthStream(GRID_SIDE_LENGTH);
+        int[] columnLengths = calculateColumnLengthArray(GRID_SIDE_LENGTH);
         int x = 0;
 
         for (int columnLength : columnLengths) {
@@ -90,5 +87,12 @@ public class MazeRunner {
             }
         }
         throw new RuntimeException("Failed to find start position");
+    }
+
+    static {
+        MOVE_DOWN = new Coordinates(0, 1);
+        MOVE_RIGHT = new Coordinates(1, 0);
+        LEFT_SIDE_MOVE_DOWN_RIGHT = new Coordinates(1, 1);
+        RIGHT_SIDE_MOVE_TOP_RIGHT = new Coordinates(1, -1);
     }
 }

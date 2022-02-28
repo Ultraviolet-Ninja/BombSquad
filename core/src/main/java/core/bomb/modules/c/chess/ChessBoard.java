@@ -1,5 +1,6 @@
 package core.bomb.modules.c.chess;
 
+import org.jetbrains.annotations.NotNull;
 import tools.Coordinates;
 
 import static core.bomb.modules.c.chess.Tile.TileColor.BLACK;
@@ -23,15 +24,15 @@ public class ChessBoard {
         }
     }
 
-    public void setTileCovered(Coordinates location) {
+    public void setTileCovered(@NotNull Coordinates location) {
         board[location.x()][location.y()].coverTile();
     }
 
-    public void setPieceAtLocation(ChessPiece piece, Coordinates location) {
+    public void setPieceAtLocation(ChessPiece piece, @NotNull Coordinates location) {
         board[location.x()][location.y()].setCurrentPiece(piece);
     }
 
-    public Tile getTile(Coordinates location) {
+    public Tile getTile(@NotNull Coordinates location) {
         return board[location.x()][location.y()];
     }
 

@@ -1,7 +1,7 @@
 package core.bomb.modules.dh.forget_me;
 
 import core.bomb.Widget;
-import core.bomb.enumerations.Indicator;
+import org.jetbrains.annotations.NotNull;
 import tools.filter.Regex;
 import tools.filter.RegexFilter;
 
@@ -9,15 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.IntUnaryOperator;
 
+import static core.bomb.Widget.IndicatorFilter.LIT;
+import static core.bomb.Widget.IndicatorFilter.UNLIT;
+import static core.bomb.enumerations.Indicator.CAR;
 import static core.bomb.enumerations.Port.SERIAL;
 
 public class ForgetMeNot extends Widget {
-    private static final IntUnaryOperator LEAST_SIG_DIGIT = num -> num % 10;
-    private static final IntUnaryOperator MOST_SIG_DIGIT =
-            num -> (int) (num / Math.pow(10, Math.floor(Math.log10(num))));
-    private static final List<Byte> FINAL_CODE = new ArrayList<>(100);
+    private static final IntUnaryOperator LEAST_SIG_DIGIT, MOST_SIG_DIGIT;
+    private static final List<Byte> FINAL_CODE;
 
-    private static byte largestSerialCodeNumber = -1;
+    private static byte largestSerialCodeNumber;
+
+    static {
+        LEAST_SIG_DIGIT = num -> num % 10;
+        MOST_SIG_DIGIT = num -> (int) (num / Math.pow(10, Math.floor(Math.log10(num))));
+        FINAL_CODE = new ArrayList<>(100);
+
+        largestSerialCodeNumber = -1;
+    }
 
     public static void add(int stageNumber) throws IllegalStateException {
         if (!isForgetMeNotActive)
@@ -43,11 +52,11 @@ public class ForgetMeNot extends Widget {
     }
 
     private static int createFirstNumber(int stageNumber) {
-        if (hasUnlitIndicator(Indicator.CAR))
+        if (hasUnlitIndicator(CAR))
             return stageNumber + 2;
 
-        int numLitIndicators = countIndicators(IndicatorFilter.LIT);
-        int numUnlitIndicators = countIndicators(IndicatorFilter.UNLIT);
+        int numLitIndicators = countIndicators(LIT);
+        int numUnlitIndicators = countIndicators(UNLIT);
 
         if (numUnlitIndicators > numLitIndicators)
             return stageNumber + 7;
@@ -118,7 +127,7 @@ public class ForgetMeNot extends Widget {
             FINAL_CODE.remove(size - 1);
     }
 
-    public static String stringifyFinalCode() {
+    public static @NotNull String stringifyFinalCode() {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < FINAL_CODE.size(); i++) {

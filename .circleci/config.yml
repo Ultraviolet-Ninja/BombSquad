@@ -1,0 +1,103 @@
+# Java Gradle CircleCI 2.0 configuration file
+version: 2
+jobs:
+  utility-jacoco:
+    docker:
+      - image: cimg/openjdk:17.0.1
+    resource_class: small
+
+    working_directory: ~/repo
+
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+      - run: chmod +x gradlew
+      - run: ./gradlew :utility:dependencies
+      - run: ./gradlew :utility:test
+      - store_test_results:
+          path: ./utility/build/test-results/test
+      - store_artifacts:
+          path: ./utility/build/reports/jacoco
+
+
+  utility-pitest:
+    docker:
+      - image: cimg/openjdk:17.0.1
+    resource_class: medium
+
+    working_directory: ~/repo
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+      - run: chmod +x gradlew
+      - run: ./gradlew :utility:dependencies
+      - run: ./gradlew :utility:pitest
+      - store_artifacts:
+          path: ./utility/build/reports/pitest
+
+
+  core-jacoco:
+    docker:
+      - image: cimg/openjdk:17.0.1
+#    parallelism: 5
+#    resource_class: large
+
+    working_directory: ~/repo
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+      - run: chmod +x gradlew
+      - run: ./gradlew :core:dependencies
+#      - run: ./gradlew :core:test
+#      - store_test_results:
+#          path: ./core/build/test-results/test
+#      - store_artifacts:
+#          path: ./core/build/reports/jacoco
+
+
+  core-pitest:
+    docker:
+      - image: cimg/openjdk:17.0.1
+#    parallelism: 6
+#    resource_class: large
+
+    working_directory: ~/repo
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
+    steps:
+      - checkout
+      - run: chmod +x gradlew
+      - run: ./gradlew :core:dependencies
+#      - run: ./gradlew :core:pitest
+#      - store_artifacts:
+#          path: ./utility/build/reports/pitest
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - utility-jacoco
+      - utility-pitest
+      - core-jacoco:
+          requires:
+            - utility-jacoco
+            - utility-pitest
+      - core-pitest:
+          requires:
+            - utility-jacoco
+            - utility-pitest
