@@ -3,16 +3,14 @@
 ## Introduction
 The purpose of this project is as an extension to the [Gradle Centurion](https://github.com/Ultraviolet-Ninja/GradleCenturion) to solve more modules than those on the Centurion
 
-This also helped me understand how to set up a multi module project with Gradle
+This also helped me understand how to set up a multi-module project with Gradle
 
 ## Technologies
 - Java 16
-- Gradle 7.3.3
+- Gradle 7.4
 
 ### Plugins
-- Jacoco
 - JavaFX
-- Pitest
 ### Dependencies
 - MaterialFX  ver. 11.12.0
 - JFoenix     ver. 9.0.4
